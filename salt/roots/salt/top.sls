@@ -7,3 +7,5 @@ base:
     - router
     - carp
     - pf
+  'db1':
+    - mysql
