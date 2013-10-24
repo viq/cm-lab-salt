@@ -1,1 +1,2 @@
-inet
+inet {{ carp_ip }} {{ carp_mask }} NONE carpdev {{ carp_dev }} vhid {{ carp_vhid }} advbase {{ carp_advbase }} advskew {{ carp_advskew }} pass {{ carp_pass }}
+description "{{ carp_description }}"
