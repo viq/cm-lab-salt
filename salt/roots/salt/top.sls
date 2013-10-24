@@ -1,6 +1,7 @@
 base:
   '*':
     - base
+    - timezone
   'os:OpenBSD':
     - match: grain
     - router
