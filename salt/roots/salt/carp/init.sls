@@ -1,6 +1,7 @@
 {% for iface, carpid in pillar['carp'].iteritems() %}
 /etc/hostname.{{iface}}:
   file.managed:
+    - mode: '600'
     - source: salt://carp/hostname.carp
     - template: jinja
     - context:
@@ -12,4 +13,9 @@
       carp_description: {{ carpid['carp_description'] }}
       carp_advbase: {{ carpid['carp_advbase'] }}
       carp_advskew: {{ carpid['carp_advskew'] }}
+  cmd.wait:
+    - name: sh /etc/netstart {{iface}}
+    - cwd: /etc
+    - watch: 
+      - file: /etc/hostname.{{iface}}
 {% endfor %}
