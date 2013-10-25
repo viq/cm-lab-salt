@@ -33,7 +33,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       salt.master_pub = "salt/key/master.pub"
       salt.minion_key = "salt/key/minion.pem"
       salt.minion_pub = "salt/key/minion.pub"
-      salt.seed_master = { saltmaster: salt.minion_pub, obsd1: salt.minion_pub, obsd2: salt.minion_pub, db1: salt.minion_pub }
+      salt.seed_master = { saltmaster: salt.minion_pub, obsd1: salt.minion_pub, obsd2: salt.minion_pub, db1: salt.minion_pub, app1: salt.minion_pub }
       #salt.verbose = true
       salt.temp_config_dir = "/tmp"
       salt.run_highstate = true
@@ -80,6 +80,21 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       db1salt.master_pub = "salt/key/master.pub"
       db1salt.minion_key = "salt/key/minion.pem"
       db1salt.minion_pub = "salt/key/minion.pub"
+    end
+  end
+    config.vm.define :app1 do |app1config|
+    app1config.vm.box = "debian-7-amd64"
+    app1config.vm.network :private_network, ip: "192.168.34.102"
+    app1config.vm.hostname = "app1"
+    app1config.vm.synced_folder ".", "/vagrant", disabled: true
+    app1config.vm.provision :hostmanager
+    app1config.vm.provision :salt do |app1salt|
+      app1salt.install_type = "stable"
+      app1salt.always_install = false
+      app1salt.master_key = "salt/key/master.pem"
+      app1salt.master_pub = "salt/key/master.pub"
+      app1salt.minion_key = "salt/key/minion.pem"
+      app1salt.minion_pub = "salt/key/minion.pub"
     end
   end
 end
