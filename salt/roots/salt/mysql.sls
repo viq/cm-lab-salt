@@ -10,14 +10,15 @@ mysql:
     - watch:
       - pkg: mysql-server
 wordpress:
-  mysql_database.present
+  mysql_database.present:
+    - name: {{ salt['pillar.get']('wordpress:db:db_name') }}
 wordpress_user:
   mysql_user.present:
-    - name: wordpress
+    - name: {{ salt['pillar.get']('wordpress:db:db_user') }}
     - host: 192.168.34.102
-    - password: UgDefijTiesumWashsid
+    - password: {{ salt['pillar.get']('wordpress:db:db_password') }}
 wordpress_grants:
   mysql_grants.present:
     - grant: all privileges
     - database: wordpress.*
-    - user: wordpress
+    - user: {{ salt['pillar.get']('wordpress:db:db_user') }}
