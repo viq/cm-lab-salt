@@ -7,5 +7,10 @@ base:
     - router
     - carp
     - pf
+  'os:Debian':
+    - match: grain
+    - packages
   'db1':
     - mysql
+  'app1':
+    - wordpress

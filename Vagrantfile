@@ -7,6 +7,8 @@ require 'vagrant-hostmanager'
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
   config.vm.define :master do |vmconfig|
     vmconfig.vm.box = "debian-7-amd64"
   
@@ -28,7 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       #salt.bootstrap_options = "-D"
       ## Config Options
       #salt.minion_config = "salt/minion"
-      #salt.master_config = "salt/master"
+      salt.master_config = "salt/master"
       salt.master_key = "salt/key/master.pem"
       salt.master_pub = "salt/key/master.pub"
       salt.minion_key = "salt/key/minion.pem"
