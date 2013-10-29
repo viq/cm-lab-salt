@@ -3,3 +3,4 @@ packages:
     - pkgs:
       - tmux
       - multitail
+      - vim
