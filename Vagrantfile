@@ -19,7 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vmconfig.vm.synced_folder "salt/roots/", "/srv/", :nfs => true
 
     vmconfig.vm.provider :virtualbox do |vb|
-      vb.customize ["modifyvm", :id, "--memory", "512"]
+      vb.customize ["modifyvm", :id, "--memory", "1024"]
     end
     vmconfig.vm.provision :hostmanager
     vmconfig.vm.provision :salt do |salt|
@@ -99,4 +99,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       app1salt.minion_pub = "salt/key/minion.pub"
     end
   end
+  config.vm.provision :hostmanager
 end

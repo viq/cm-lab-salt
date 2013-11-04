@@ -12,5 +12,6 @@ base:
     - packages
   'db1':
     - mysql
+    - users
   'app1':
     - wordpress
