@@ -1,3 +1,4 @@
 include:
-  - users.group3
+  - users.groups
   - users.group1
+  - users.group3

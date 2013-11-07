@@ -11,9 +11,7 @@
 {% endif %}
 {% endif %}
     - fullname: {{ args['fullname'] }}
-{% if 'groups' in args %}
-    - groups: {{ args['groups'] }}
-{% endif %}
+    - groups: {{ salt['pillar.get']('groups:group3') }}
 #    - require:
 #      - group: {{ user }}
  

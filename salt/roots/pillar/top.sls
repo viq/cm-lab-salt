@@ -2,11 +2,11 @@ base:
   'os:OpenBSD':
     - match: grain
     - carp
-    - test
   'db1 or app1':
     - match: compound
     - wordpress
-  'db1':
+  'db1 or obsd1':
+    - match: compound
     - users
   'app1':
     - users.group1

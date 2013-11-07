@@ -2,7 +2,7 @@
   'Debian': {
     'adm_group': 'sudo',
   },
-  '*': {
+  'OpenBSD': {
     'adm_group': 'wheel',
   },
 }, merge=salt['pillar.get']('users.lookup')) %}

@@ -15,3 +15,5 @@ base:
     - users
   'app1':
     - wordpress
+  'obsd1':
+    - users
