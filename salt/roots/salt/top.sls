@@ -17,3 +17,5 @@ base:
     - wordpress
   'obsd1':
     - users
+  'saltmaster':
+    - gems

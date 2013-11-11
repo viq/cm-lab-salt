@@ -3,3 +3,6 @@ packages:
     - pkgs:
       - tmux
       - multitail
+      - htop
+      - vim
+      - tcpdump

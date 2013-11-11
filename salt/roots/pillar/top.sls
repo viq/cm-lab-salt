@@ -1,4 +1,6 @@
 base:
+  '*':
+    - collectd
   'os:OpenBSD':
     - match: grain
     - carp
