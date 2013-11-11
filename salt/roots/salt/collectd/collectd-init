@@ -1,0 +1,11 @@
+#!/bin/sh
+
+daemon="/usr/local/sbin/collectd"
+daemon_user="_collectd"
+
+. /etc/rc.d/rc.subr
+
+rc_reload=NO
+
+rc_cmd $1
+
