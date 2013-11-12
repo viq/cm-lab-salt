@@ -1,5 +1,7 @@
-{% for group, args in pillar['groups'].iteritems() %}
-{{ args.pop() }}:
+{% for name, list in pillar['groups'].iteritems() %}
+{% for groupname in list %}
+{{ groupname }}:
   group:
     - present
+{% endfor %}
 {% endfor %}
