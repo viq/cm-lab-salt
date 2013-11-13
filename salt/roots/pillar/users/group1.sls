@@ -13,5 +13,6 @@ group1:
   lward:
     fullname: Lucas Ward
     home: /home/lward
+    remove: True
     pub_ssh_keys:
       - ecdsa-sha2-nistp384 AAAAE2VjZHNhLXNoYTItbmlzdHAzODQAAAAIbmlzdHAzODQAAABhBAxxGtP94N1TV91W4DAk933JFcJcsg0Kr4gzzyi9aVddMpqsoxEQ3ORH43SeZeFsCATYdeln6ktaPnTpFFzLDyrST3eXKQ/ryZ22+pE7u+0UpAhTc/3OLD0PKpRagNRIsw== Lucas Ward

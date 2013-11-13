@@ -1,4 +1,5 @@
 {% for user, args in pillar['group2'].iteritems() %}
+{% if 'remove' not in args %}
 {{ user }}:
 #  group:
 #    - present
@@ -29,5 +30,11 @@
     - absent
     - user: {{ user }}
     - names: {{ args['pub_ssh_keys_absent'] }}
+{% endif %}
+{% endif %}
+
+{% if 'remove' in args and args['remove'] == True %}
+{{ user }}:
+  user.absent
 {% endif %}
 {% endfor %}
